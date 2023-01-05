@@ -3,6 +3,7 @@
 import functools
 from timeit import default_timer as timer
 
+
 def calcutimeit(func):
     @functools.wraps(func)
     def wrapper(*args, **kw):
@@ -13,3 +14,15 @@ def calcutimeit(func):
         return _ret
 
     return wrapper
+
+
+if __name__ == '__main__':
+    @calcutimeit
+    def tt():
+        import time
+        time.sleep(1)
+
+
+    tt()
+    print('ok.')
+
